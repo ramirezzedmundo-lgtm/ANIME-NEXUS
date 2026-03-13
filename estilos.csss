@@ -1,0 +1,196 @@
+/* --- Estilos Globales (Ciberpunk-Anime) --- */
+:root {
+  --bg-deep: #020205;
+  --panel-bg: rgba(10, 10, 15, 0.9);
+  --cyan: #00ffff;
+  --magenta: #ff00ff;
+  --mint: #98ff98;
+  --red: #ff3333;
+  --text-primary: #e0e0e0;
+  --font-tech: 'Courier New', monospace;
+  --font-anime: 'Press Start 2P', cursive;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-tech);
+  overflow-x: hidden;
+}
+
+/* Superposición de cuadrícula ciberpunk */
+.cyber-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(0deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+}
+
+/* Fondo con efecto de scroll sutil */
+.scrolling-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: repeating-linear-gradient(45deg, rgba(0, 255, 255, 0.02) 0px, rgba(0, 255, 255, 0.02) 1px, transparent 1px, transparent 10px);
+  z-index: -2;
+}
+
+header {
+  padding: 1.5rem;
+  background-color: var(--panel-bg);
+  border-bottom: 2px solid var(--cyan);
+  text-align: center;
+}
+
+.logo {
+  font-family: var(--font-tech);
+  font-weight: bold;
+  color: var(--cyan);
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px var(--cyan);
+}
+
+/* --- Sección Héroe (The Hero) --- */
+.hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  gap: 30px;
+  padding: 60px;
+  min-height: calc(100vh - 120px);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+.hero-img {
+  max-width: 100%;
+  height: auto;
+  border: 4px solid var(--mint);
+  clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 10%); /* Esquina cortada */
+  filter: drop-shadow(0 0 20px rgba(152, 255, 152, 0.5));
+  animation: floatCharacter 4s ease-in-out infinite;
+}
+
+@keyframes floatCharacter {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- Sección Galería Dinámica (Gallery) --- */
+.gallery {
+    padding: 60px;
+    text-align: center;
+    background-color: rgba(5, 5, 10, 0.8);
+}
+
+.gallery h2 {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px 0;
+}
+
+.gallery-card {
+    background-color: var(--panel-bg);
+    border: 1px solid var(--cyan);
+    padding: 15px;
+    border-radius: 4px; /* Un toque menos agresivo */
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+}
+
+.gallery-card h3 {
+    font-size: 1.1rem;
+    color: var(--cyan);
+    margin: 15px 0 5px;
+    text-transform: uppercase;
+}
+
+/* Efectos de resaltado al pasar el mouse (hover) */
+.gallery-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+}
+
+/* Variaciones de color para los bordes */
+.card-cyan { border-color: var(--cyan); }
+.card-magenta { border-color: var(--magenta); }
+.card-mint { border-color: var(--mint); }
+.card-red { border-color: var(--red); }
+
+/* Efecto parpadeo para Club Nexus */
+.blink_me { animation: blinker 1s linear infinite; }
+@keyframes blinker { 50% { opacity: 0; } }
+
+/* Estilo para Club Nexus Especial */
+.special-card {
+    border-color: var(--red);
+}
+
+.special-card h3 {
+    color: var(--red);
+}
+
+.red-accent { color: var(--red); }
+
+/* --- Botón Estilo "Anime Tech" --- */
+.boton-anime {
+  background: transparent;
+  border: 2px solid var(--cyan);
+  color: var(--cyan);
+  padding: 15px 30px;
+  font-family: var(--font-tech);
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.boton-anime:hover {
+  background: var(--cyan);
+  color: #000;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+}
+
+footer {
+  padding: 1rem;
+  background-color: var(--panel-bg);
+  border-top: 2px solid var(--cyan);
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Colores de texto útiles */
+.cyan-text { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
+.mint-text { color: var(--mint); text-shadow: 0 0 10px var(--mint); }
+.magenta-text { color: var(--magenta); }
